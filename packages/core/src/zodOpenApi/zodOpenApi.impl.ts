@@ -2,6 +2,7 @@ import type { SchemaObject, SchemaObjectType } from 'openapi3-ts/oas31'
 import { merge } from 'ts-deepmerge'
 import type { AnyZodObject, ZodTypeAny } from 'zod'
 import { z } from 'zod'
+import { DataClassification } from './dataClassification'
 
 /**
  * Based on package `@anatine/zod-openapi`
@@ -10,7 +11,7 @@ import { z } from 'zod'
  * @link https://github.com/anatine/zod-plugins/tree/main/packages/zod-openapi
  */
 export interface OpenApiZodAny extends ZodTypeAny {
-  metaOpenApi?: SchemaObject | SchemaObject[]
+  metaOpenApi?: SchemaObject | SchemaObject[] | { DataClassification?: DataClassification }
 }
 
 interface OpenApiZodAnyObject extends AnyZodObject {
